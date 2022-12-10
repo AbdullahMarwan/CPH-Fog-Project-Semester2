@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@page errorPage="error.jsp" isErrorPage="false" %>
 
-<t:pagetemplate>
+<t:fogtemplate>
     <jsp:attribute name="header">
              Login
     </jsp:attribute>
@@ -26,4 +26,4 @@
         </form>
 
     </jsp:body>
-</t:pagetemplate>
+</t:fogtemplate>

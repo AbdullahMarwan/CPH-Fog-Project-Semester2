@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  toerretaldb:
+    image: mysql:8.0.30
+    restart: always
+    environment:
+      - MYSQL_DATABASE=toerre_tal
+      - MYSQL_ROOT_PASSWORD=cphbus2022
+      - MYSQL_USER=toerretal01
+      - MYSQL_PASSWORD=toerretal01
+    ports:
+      - '4000:3306'
+    volumes:
+      - toerretaldb:/var/lib/mysql
+volumes:
+  toerretaldb:
+    driver: local
