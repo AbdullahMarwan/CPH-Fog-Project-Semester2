@@ -6,23 +6,23 @@
 
 <t:fogtemplate>
     <jsp:attribute name="header">
-             Login
+             Sign Up
     </jsp:attribute>
-
+    
     <jsp:body>
 
-        <h3>You can log in here</h3>
+        <h3>You can Sign Up here</h3>
 
-        <form action="login" method="post">
+        <form action="signup" method="post">
             <label for="username">Username: </label>
             <input type="text" id="username" name="username"/>
             <label for="password">Password: </label>
             <input type="password" id="password" name="password"/>
-            <input type="submit"  value="Log in"/>
+            <input type="submit"  value="Create Account"/>
         </form>
 
-        <p><br>Don't have an account? Sign up here:</p>
-        <a class="btn btn-primary" href="signup.jsp" role="button">Sign Up</a>
+        <p><br>Already have an account? You can login here:</p>
+        <a class="btn btn-primary" href="login.jsp" role="button">Login</a>
 
     </jsp:body>
 </t:fogtemplate>

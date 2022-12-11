@@ -18,7 +18,7 @@
             <p>You are not logged in yet. You can do it here:</p>
             <a class="btn btn-primary" href="login.jsp" role="button">Login</a>
 
-            <p>Don't have an account? Sign up here:</p>
+            <p><br>Don't have an account? Sign up here:</p>
             <a class="btn btn-primary" href="signup.jsp" role="button">Sign Up</a>
         </c:if>
 
