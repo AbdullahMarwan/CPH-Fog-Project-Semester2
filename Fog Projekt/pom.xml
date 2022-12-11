@@ -4,12 +4,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- TODO: Change <artifactId> and <name> below to your project name -->
-
     <groupId>dat</groupId>
-    <artifactId>startcode</artifactId>
+    <artifactId>fog</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>startcode</name>
+    <name>fog</name>
     <packaging>war</packaging>
 
     <properties>
@@ -20,6 +18,11 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <version>3.3.2</version>
+        </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
@@ -80,7 +83,6 @@
             <artifactId>logback-classic</artifactId>
             <version>1.2.3</version>
         </dependency>
-
     </dependencies>
 
     <build>
