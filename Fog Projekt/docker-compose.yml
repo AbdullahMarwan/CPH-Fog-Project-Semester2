@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  fogdb:
+    image: mysql:8.0.30
+    restart: always
+    environment:
+      - MYSQL_DATABASE=fog
+      - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
+      - MYSQL_USER=$MYSQL_USER
+      - MYSQL_PASSWORD=$MYSQL_PASSWORD
+    ports:
+      - '4000:3306'
+    volumes:
+      - fogdb:/var/lib/mysql
+      - ./database/scripts/structure_data:/docker-entrypoint-initdb.d
+  fogweb:
+      depends_on:
+        - fogdb
+      build:
+        context: .
+        dockerfile: Dockerfile
+      image: tomcat
+      volumes:
+        - ./target/fog-1.0-SNAPSHOT.war:/usr/local/tomcat/webapps/fog-1.0-SNAPSHOT.war
+      ports:
+        - '4100:8080'
+volumes:
+  fogdb:
+    driver: local
