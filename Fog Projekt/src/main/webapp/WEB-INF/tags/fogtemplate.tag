@@ -49,6 +49,26 @@
     <jsp:doBody/>
 </div>
 
+<!-- Footer -->
+<div class="container mt-3">
+    <hr/>
+    <div class="row mt-4">
+        <div class="col">
+            Firskovvej 20 <br/>
+            2800 Lyngby
+        </div>
+        <div class="col">
+            <jsp:invoke fragment="footer"/><br/>
+            <p>&copy; Johannes Fog A/S</p>
+        </div>
+        <div class="col">
+            CVR-nr. 16314439<br/>
+            Fog
+        </div>
+    </div>
+
+</div>
+
 </div>
 
 <!-- Bootstrap Bundle with Popper -->
