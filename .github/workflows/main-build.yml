@@ -24,7 +24,7 @@ jobs:
           mkdir CPH-Fog-Project-Semester2-${{ steps.date.outputs.date }}
           cd CPH-Fog-Project-Semester2-${{ steps.date.outputs.date }}
           git clone https://github.com/AbdullahMarwan/CPH-Fog-Project-Semester2.git &
-          . ../../../sourcecode/SetEnv.sh 6
+          . ../../../sourcecode/SetEnv.sh &
           echo "WARNING: Starting nuking of docker data, images, containers, volumes, networks. :"; docker rm -f -v $(docker ps -aq); docker rmi -f $(docker images -q); docker volume rm $(docker volume ls -q); docker network rm $(docker network ls -q); &
           docker compose down && docker compose build --no-cache && docker compose up -d &
           wait
