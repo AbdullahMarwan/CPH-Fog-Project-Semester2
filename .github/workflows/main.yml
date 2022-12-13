@@ -1,0 +1,20 @@
+name: GitHub Actions Fog Test
+on:
+  push:
+    branches:
+      - "test"
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout main
+      uses: actions/checkout@v2
+    - name: Deploy to Digital Ocean droplet via SSH action
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.DEPLOY_HOST }}
+        username: ${{ secrets.DEPLOY_USERNAME }}
+        key: ${{ secrets.DEPLOY_KEY }}
+        script: |
+          whoami
+          ls -la
