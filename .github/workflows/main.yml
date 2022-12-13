@@ -15,6 +15,7 @@ jobs:
         host: ${{ secrets.DEPLOY_HOST }}
         username: ${{ secrets.DEPLOY_USERNAME }}
         key: ${{ secrets.DEPLOY_KEY }}
+        passphrase: ${{ secrets.DEPLOY_KEY_PASSPHRASE }}
         script: |
           whoami
           ls -la
