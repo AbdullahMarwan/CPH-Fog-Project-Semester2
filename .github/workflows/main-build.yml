@@ -20,9 +20,9 @@ jobs:
         key: ${{ secrets.DEPLOY_KEY }}
         passphrase: ${{ secrets.DEPLOY_KEY_PASSPHRASE }}
         script: |
-          cd sourcecode-pipeline
-          mkdir CPH-Fog-Project-Semester2-${{ steps.date.outputs.date }}
-          cd CPH-Fog-Project-Semester2-${{ steps.date.outputs.date }}
+          cd sourcecode-pipeline &
+          mkdir CPH-Fog-Project-Semester2-${{ steps.date.outputs.date }} &
+          cd CPH-Fog-Project-Semester2-${{ steps.date.outputs.date }} &
           git clone https://github.com/AbdullahMarwan/CPH-Fog-Project-Semester2.git &
           . ../../../sourcecode/SetEnv.sh &
           docker compose down && docker compose build --no-cache && docker compose up -d &
