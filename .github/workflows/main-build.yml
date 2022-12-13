@@ -9,7 +9,7 @@ jobs:
     steps:
     - name: Get current date
       id: date
-      run: echo "::set-output name=date::$(date +'%Y-%m-%d-%H:%M:%S')"
+      run: echo "::set-output name=date::$(date +'%Y-%m-%d-%H-%M-%S')"
     - name: Checkout main
       uses: actions/checkout@v2
     - name: Deploy to Digital Ocean droplet via SSH action
