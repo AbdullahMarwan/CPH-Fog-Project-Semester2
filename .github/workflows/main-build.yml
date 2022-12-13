@@ -9,7 +9,7 @@ jobs:
     steps:
     - name: Get current date
       id: date
-      run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+      run: echo "::set-output name=date::$(date +'%Y-%m-%d %H:%M:%S')"
     - name: Checkout main
       uses: actions/checkout@v2
     - name: Deploy to Digital Ocean droplet via SSH action
@@ -20,9 +20,10 @@ jobs:
         key: ${{ secrets.DEPLOY_KEY }}
         passphrase: ${{ secrets.DEPLOY_KEY_PASSPHRASE }}
         script: |
+          cd sourcecode-pipeline
           mkdir CPH-Fog-Project-Semester2-${{ steps.date.outputs.date }}
+          cd CPH-Fog-Project-Semester2-${{ steps.date.outputs.date }}
           git clone https://github.com/AbdullahMarwan/CPH-Fog-Project-Semester2.git
-          . ./SetEnv.sh
+          . ../../../sourcecode/SetEnv.sh
           echo "WARNING: Starting nuking of docker data, images, containers, volumes, networks. :"; docker rm -f -v $(docker ps -aq); docker rmi -f $(docker images -q); docker volume rm $(docker volume ls -q); docker network rm $(docker network ls -q);
           docker compose down && docker compose build --no-cache && docker compose up -d
-          
