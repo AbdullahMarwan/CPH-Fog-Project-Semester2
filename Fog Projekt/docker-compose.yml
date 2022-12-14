@@ -14,16 +14,24 @@ services:
       - fogdb:/var/lib/mysql
       - ./database/scripts/structure_data:/docker-entrypoint-initdb.d
   fogweb:
-      depends_on:
-        - fogdb
-      build:
-        context: .
-        dockerfile: Dockerfile
-      image: tomcat
-      volumes:
-        - ./target/fog-1.0-SNAPSHOT.war:/usr/local/tomcat/webapps/fog-1.0-SNAPSHOT.war
-      ports:
-        - '4100:8080'
+    depends_on:
+      - fogdb
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: tomcat
+    environment:
+      - DEPLOYED=$DEPLOYED
+      - JDBC_USER=$JDBC_USER
+      - JDBC_PASSWORD=$JDBC_PASSWORD
+      - JDBC_DRIVER_PREFIX=$JDBC_DRIVER_PREFIX
+      - JDBC_HOST=$JDBC_HOST
+      - JDBC_DB=$JDBC_DB
+      - JDBC_PARAMS=$JDBC_PARAMS
+    ports:
+      - '4100:8080'
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
 volumes:
   fogdb:
     driver: local
