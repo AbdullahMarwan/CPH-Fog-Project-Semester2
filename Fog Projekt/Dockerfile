@@ -1,25 +1,14 @@
-#FROM maven:3.6.3-jdk-11 AS build
-#FROM maven:3.6.0-jdk-11-slim AS build
-#FROM maven:3.6-jdk-11 as maven_build
-#FROM adoptopenjdk/openjdk11:latest
-#FROM maven:3.8.6-openjdk-11-slim
-FROM tomcat:10.1.4-jdk11
+FROM maven:3.6.0-jdk-11-slim AS mavenbuild
+WORKDIR /home/app
+COPY pom.xml /home/app/pom.xml
+COPY src /home/app/src
 
-RUN mkdir -p /app
-WORKDIR /app
-COPY pom.xml /app
-COPY src /app/src
+#RUN mvn -v -X -f pom.xml clean package - DEBUG
+RUN mvn -f pom.xml clean package
 
-#RUN mvn clean package
-#RUN mvn -v clean install
+# Tomcat stage
+FROM tomcat:9.0.70-jdk11 as tomcatbuild
 
-ADD ./target/fog-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/
-#ADD ./target/fog-1.0-SNAPSHOT.war $CATALINA_HOME/webapps/
+COPY --from=mavenbuild /home/app/target/fog-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/
 
 EXPOSE 8080
-
-#CMD ["/usr/local/tomcat/bin/catalina.sh", "run"]
-#CMD chmod +x /usr/local/tomcat/bin/catalina.sh
-#CMD ["catalina.sh", "run"]
-
-#docker-compose down && docker-compose build --no-cache && docker-compose up
