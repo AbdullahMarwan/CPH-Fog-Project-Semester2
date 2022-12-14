@@ -30,7 +30,7 @@ public class ConnectionPool
             // Prod: hent variabler fra setenv.sh i Tomcats bin folder
             USER = System.getenv("JDBC_USER");
             PASSWORD = System.getenv("JDBC_PASSWORD");
-            URL = System.getenv("JDBC_CONNECTION_STRING");
+            URL = System.getenv("JDBC_DRIVER_PREFIX") + System.getenv("JDBC_HOST") + System.getenv("JDBC_DB") + System.getenv("JDBC_PARAMS");
         }
 
         Logger.getLogger("web").log(Level.INFO,
