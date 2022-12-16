@@ -12,6 +12,7 @@ services:
       - '4000:3306'
     volumes:
       - fogdb:/var/lib/mysql
+      - fogdb-log:/var/log/mysql
       - ./database/scripts/structure_data:/docker-entrypoint-initdb.d
   fogweb:
     depends_on:
@@ -34,4 +35,6 @@ services:
       - 'host.docker.internal:host-gateway'
 volumes:
   fogdb:
+    driver: local
+  fogdb-log:
     driver: local
