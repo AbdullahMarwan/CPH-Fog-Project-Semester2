@@ -159,7 +159,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES ('','','user','0'),('admin','1234','admin',''),('user','1234','user',''),('user1234','1234','user','0'),('user23','123451','user','0');
+INSERT INTO `user` VALUES ('admin','1234','admin','0'),('user','1234','user','0'),('user1234','1234','user','0'),('user23','123451','user','0');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
