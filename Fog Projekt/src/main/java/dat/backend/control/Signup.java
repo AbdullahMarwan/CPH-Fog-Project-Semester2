@@ -41,7 +41,7 @@ public class Signup extends HttpServlet {
             session = request.getSession();
             session.setAttribute("user", user); // adding user object to session scope
 
-            request.getRequestDispatcher("WEB-INF/usercreation.jsp").forward(request, response);
+            request.getRequestDispatcher("WEB-INF/users/creation.jsp").forward(request, response);
         } catch (DatabaseException e) {
             request.setAttribute("errormessage", e.getMessage());
             request.getRequestDispatcher("error.jsp").forward(request, response);
