@@ -1,0 +1,8 @@
+# Maven stage
+FROM mysql:8.0.30
+
+COPY ./database/scripts/init_db.sh /home/app/scripts/init_db.sh
+
+EXPOSE 4000
+
+CMD ["/bin/bash", "/home/app/scripts/init_db.sh"]

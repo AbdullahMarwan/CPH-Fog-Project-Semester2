@@ -2,8 +2,7 @@ version: '3.8'
 services:
   fogdb:
     image: mysql:8.0.30
-    #restart: always
-    restart: on-failure
+    restart: always
     environment:
       - MYSQL_DATABASE=fog
       - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
@@ -11,12 +10,8 @@ services:
       - MYSQL_PASSWORD=$MYSQL_PASSWORD
     ports:
       - '4000:3306'
-    networks:
-      fogprojektnetwork:
-        ipv4_address: 192.168.2.3
     volumes:
       - fogdb:/var/lib/mysql
-      - fogdb-log:/var/log/mysql
       - ./database/scripts/structure_data:/docker-entrypoint-initdb.d
   fogweb:
     depends_on:
@@ -25,6 +20,7 @@ services:
       context: .
       dockerfile: Dockerfile
     image: tomcat
+    #volumes: # - ./target/fog-1.0-SNAPSHOT.war:/usr/local/tomcat/webapps/fog-1.0-SNAPSHOT.war
     environment:
       - DEPLOYED=$DEPLOYED
       - JDBC_USER=$JDBC_USER
@@ -35,21 +31,6 @@ services:
       - JDBC_PARAMS=$JDBC_PARAMS
     ports:
       - '4100:8080'
-    networks:
-      fogprojektnetwork:
-        ipv4_address: 192.168.2.2
-    extra_hosts:
-      - 'host.docker.internal:192.168.2.1' #- 'host.docker.internal:host-gateway'
 volumes:
   fogdb:
     driver: local
-  fogdb-log:
-    driver: local
-networks:
-  fogprojektnetwork:
-    driver: bridge
-    ipam:
-      driver: default
-      config:
-        - subnet: "192.168.2.0/24"
-          gateway: "192.168.2.1"

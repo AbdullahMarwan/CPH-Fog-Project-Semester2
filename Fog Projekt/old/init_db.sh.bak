@@ -1,0 +1,6 @@
+echo "** Granting privileges to user."
+
+#mysql -u root -p$MYSQL_ROOT_PASSWORD --execute \
+#    "GRANT ALL PRIVILEGES ON $MYSQL_DATABASE.* TO '$MYSQL_USER'@'%';"
+
+echo "** Finished creating default DB and users"

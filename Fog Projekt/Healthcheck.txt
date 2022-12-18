@@ -1,0 +1,5 @@
+    healthcheck:
+        test: ["CMD", "lsof -i @localhost:4000 | grep CLOSE_WAIT"]
+        interval: 30s
+        timeout: 10s
+        retries: 5
