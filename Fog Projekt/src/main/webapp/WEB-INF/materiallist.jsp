@@ -23,7 +23,7 @@
                 </button>
             </div>
 
-            <h3>Doing</h3>
+            <h3>Material List</h3>
             <table class="table table-striped">
                 <thead>
                 <tr>
@@ -31,22 +31,12 @@
                     <th>Action</th>
                 </tr>
                 </thead>
-                <c:forEach var="item" items="${requestScope.itemList}">
-                    <c:if test="${item.done == false}">
+                <c:forEach var="material" items="${requestScope.materialList}">
                         <tr>
                             <td>
-                                    ${item.name} (${item.created})
-                            </td>
-                            <td>
-                                <button formaction="toggleitem" name="item_id" value="${item.id}">
-                                    Done
-                                </button>
-                                <button formaction="editform" name="item_id" value="${item.id}">
-                                    Edit
-                                </button>
+                                    ${material.name} (${material.price})
                             </td>
                         </tr>
-                    </c:if>
                 </c:forEach>
             </table>
 
@@ -74,7 +64,7 @@
                 </c:forEach>
             </table>
         </form>
-        
+
     </jsp:body>
 
 

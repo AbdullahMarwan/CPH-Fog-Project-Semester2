@@ -5,91 +5,33 @@
 
 <t:fogtemplate>
     <jsp:attribute name="header">
-         Welcome to the logged in area
+         Material List
     </jsp:attribute>
 
     <jsp:attribute name="footer">
-        Logged in area
+        Material List
     </jsp:attribute>
 
     <jsp:body>
 
         <form method="post">
 
-            <div class="mb-4">
-                <input type="text" name="name"/>
-                <button formaction="additem">
-                    Add item
-                </button>
-            </div>
-
-            <h3>Doing</h3>
-            <table class="table table-striped">
-                <thead>
+        <h3>Material List</h3>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Item</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <c:forEach var="item" items="${requestScope.materialList}">
                 <tr>
-                    <th>Item</th>
-                    <th>Action</th>
+                    <td>
+                            ${item.name} (${item.price})
+                    </td>
                 </tr>
-                </thead>
-                <c:forEach var="item" items="${requestScope.itemList}">
-                    <c:if test="${item.done == false}">
-                        <tr>
-                            <td>
-                                    ${item.name} (${item.created})
-                            </td>
-                            <td>
-                                <button formaction="toggleitem" name="item_id" value="${item.id}">
-                                    Done
-                                </button>
-                                <button formaction="editform" name="item_id" value="${item.id}">
-                                    Edit
-                                </button>
-                            </td>
-                        </tr>
-                    </c:if>
-                </c:forEach>
-            </table>
-
-            <h3>Done</h3>
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th>Item</th>
-                    <th>Action</th>
-                </tr>
-                </thead>
-                <c:forEach var="item" items="${requestScope.itemList}">
-                    <c:if test="${item.done == true}">
-                        <tr>
-                            <td>
-                                    ${item.name} (${item.created})
-                            </td>
-                            <td>
-                                <button formaction="toggleitem" name="item_id" value="${item.id}">
-                                    Undo
-                                </button>
-                            </td>
-                        </tr>
-                    </c:if>
-                </c:forEach>
-            </table>
-        </form>
-        
-    </jsp:body>
-
-
-    <jsp:body>
-
-        <p>You should be logged in now</p>
-
-        <c:if test="${sessionScope.user != null}">
-            <p>You are logged in with the role of "${sessionScope.user.role}".</p>
-        </c:if>
-
-        <c:if test="${sessionScope.user == null}">
-            <p>You are not logged in yet. You can do it here: <a
-                    href="../login.jsp">Login</a></p>
-        </c:if>
+            </c:forEach>
+        </table>
 
     </jsp:body>
 
