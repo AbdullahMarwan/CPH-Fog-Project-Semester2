@@ -16,7 +16,14 @@
 
         <c:if test="${sessionScope.user.role == 'admin'}">
             <p><br>View Database Materials:</p>
-            <a class="btn btn-primary" href="${pageContext.request.contextPath}/WEB-INF/materiallist.jsp" role="button">View1</a>
+            <%-- <a class="btn btn-primary" href="${pageContext.request.contextPath}/WEB-INF/materiallist.jsp" role="button">View1</a> --%>
+
+            <form action="materialList" >
+                <button type="submit" class="btn btn-primary" >
+                    View Material List
+                </button>
+            </form>
+
         </c:if>
 
         <p><br>Create your own carport:</p>

@@ -22,8 +22,7 @@ public class MaterialList extends HttpServlet {
         if (Authentication.isUserLoggedIn(request)) {
             List<Material> materialList = CarportFacade.getMaterials(connectionPool);
             request.setAttribute("materialList", materialList);
-            request.getRequestDispatcher("WEB-INF/matteriallist.jsp").forward(request, response);
-            //request.getRequestDispatcher("WEB-INF/welcome.jsp").forward(request, response);
+            request.getRequestDispatcher("WEB-INF/materiallist.jsp").forward(request, response);
         } else {
             response.sendRedirect("index.jsp");
         }
