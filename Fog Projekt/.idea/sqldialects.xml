@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
-    <file url="file://$PROJECT_DIR$/database/scripts/structure_data/fog_structure_data_v7.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/database/scripts/structure_data/fog_structure_data_v8.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/database/scripts/structure_only/fog_startcode.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/database/scripts/structure_only/fog_structure_only_v1.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/old/fog_structure_data_v7.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/dat/backend/model/persistence/UserMapper.java" dialect="GenericSQL" />
   </component>
 </project>
