@@ -25,6 +25,23 @@ class UserMapper {
         return null;
     }
 
+    static User newCreateUser(String username, String password, String role) {
+        Logger.getLogger("web").log(Level.INFO, "");
+
+        PersistenceManager persistenceManager = new PersistenceManager("fog-user-unit");
+
+        User user = persistenceManager.getEntityManager().find(User.class, username);
+
+        if (user != null) {
+            if (user.getPassword().equals(password)) {
+                return user;
+            }
+        }
+
+        return null;
+    }
+
+
     static User login(String username, String password, ConnectionPool connectionPool) throws DatabaseException {
         Logger.getLogger("web").log(Level.INFO, "");
 
