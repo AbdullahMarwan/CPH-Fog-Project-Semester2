@@ -25,21 +25,21 @@ class UserMapper {
         return null;
     }
 
-    static User newCreateUser(String username, String password, String role) {
+    static User newCreateUser(User user) {
         Logger.getLogger("web").log(Level.INFO, "");
 
         PersistenceManager persistenceManager = new PersistenceManager("fog-user-unit");
 
-        User user = persistenceManager.getEntityManager().find(User.class, username);
+        persistenceManager.entityTransaction().begin();
 
-        if (user != null) {
-            if (user.getPassword().equals(password)) {
-                return user;
-            }
-        }
+        persistenceManager.getEntityManager().persist((user));
+        persistenceManager.entityTransaction().commit();
 
         return null;
     }
+
+
+    /* Old user login and create methods
 
 
     static User login(String username, String password, ConnectionPool connectionPool) throws DatabaseException {
@@ -88,6 +88,8 @@ class UserMapper {
         }
         return user;
     }
+
+     */
 
 
 }
