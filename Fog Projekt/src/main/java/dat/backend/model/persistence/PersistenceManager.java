@@ -16,7 +16,7 @@ public class PersistenceManager {
         if (System.getenv("DEPLOYED") != null) {
             Map overridenProperties = new HashMap<>();
 
-            overridenProperties.put("javax.persistence.jdbc.url", System.getenv("JDBC_HOST") + System.getenv("JDBC_DB") + System.getenv("JDBC_PARAMS"));
+            overridenProperties.put("javax.persistence.jdbc.url", System.getenv("JDBC_DRIVER_PREFIX") + System.getenv("JDBC_HOST") + System.getenv("JDBC_DB") + System.getenv("JDBC_PARAMS"));
             overridenProperties.put("javax.persistence.jdbc.user", System.getenv("JDBC_USER"));
             overridenProperties.put("javax.persistence.jdbc.password", System.getenv("JDBC_PASSWORD"));
 
