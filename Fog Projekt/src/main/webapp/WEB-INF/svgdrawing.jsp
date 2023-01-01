@@ -13,7 +13,7 @@
     </jsp:attribute>
 
     <jsp:body>
-
+        <p>Hello</p>
         ${requestScope.svg}
 
     </jsp:body>

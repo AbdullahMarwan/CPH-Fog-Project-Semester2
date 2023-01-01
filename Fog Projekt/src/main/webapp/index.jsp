@@ -21,7 +21,7 @@
             <p><br>Don't have an account? Sign up here:</p>
             <a class="btn btn-primary" href="signup.jsp" role="button">Sign Up</a>
         </c:if>
-        <a href="svg">Se Tegningen</a>
+        <a href="createCarport">Vælg en carport</a>
     </jsp:body>
 
 </t:fogtemplate>

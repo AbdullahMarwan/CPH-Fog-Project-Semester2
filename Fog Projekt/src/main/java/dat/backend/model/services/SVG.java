@@ -29,6 +29,7 @@ public class SVG {
 
         svgString.append(String.format(HEADERTEMPLATE, x, y, height, width, viewbox));
         svgString.append(ARROWHEADSTEMPLATE);
+        svgString.append(DASHEDLINETEMPLATE);
         this.x = x;
         this.y = y;
         this.height = height;
@@ -43,15 +44,27 @@ public class SVG {
     }
 
     public void addLine(int x1, int y1, int x2, int y2){
-        svgString.append(String.format(RECTTEMPLATE, x, y, height, width));
+        svgString.append(String.format(LINETEMPLATE, x1, y1, x2, y2));
     }
 
     public void addDashedLine(int x1, int y1, int x2, int y2){
-        svgString.append(String.format(RECTTEMPLATE, x, y, height, width));
+        svgString.append(String.format(DASHEDLINETEMPLATE, x1, y1, x2, y2));
     }
 
     public void addInnerSvg(SVG innerSVGDrawing){
         svgString.append(innerSVGDrawing);
+    }
+
+    public static String addViewBox(int x, int y, int length, int width){
+        String viewBox = "";
+        viewBox += (x);
+        viewBox += (" ");
+        viewBox += (y);
+        viewBox += (" ");
+        viewBox += (length);
+        viewBox += (" ");
+        viewBox += (width);
+        return viewBox;
     }
 
 

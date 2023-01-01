@@ -7,8 +7,17 @@ public class CarportSVG
         return new SVG(x, y, height, width, viewbox);
     }
 
-    public static SVG addBeams(SVG svg)
-    {
+    public static SVG addPerforatedTapeShed(SVG svg, int length, int width) {
+        int x = 100;
+        int y = 35;
+
+        svg.addDashedLine(x, y, length-230, width-y);
+        svg.addDashedLine(x, width-y, length-230, y);
+
+        return svg;
+    }
+
+    public static SVG addBeams(SVG svg) {
         for (int i = 0; i < 800; i +=50 )
         {
             svg.addRect(i, 0, 600.0, 4.5);
