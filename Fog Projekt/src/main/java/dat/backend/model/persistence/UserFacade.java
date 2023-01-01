@@ -7,7 +7,8 @@ public class UserFacade
 {
     public static User login(String username, String password, ConnectionPool connectionPool) throws DatabaseException
     {
-        return UserMapper.login(username, password, connectionPool);
+        //return UserMapper.login(username, password, connectionPool);
+        return UserMapper.newLogin(username, password);
     }
 
     public static User createUser(String username, String password, String role, ConnectionPool connectionPool) throws DatabaseException
