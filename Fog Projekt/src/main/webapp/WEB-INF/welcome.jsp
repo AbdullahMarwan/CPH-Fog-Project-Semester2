@@ -23,6 +23,15 @@
                 </button>
             </form>
 
+            <p><br>View Customer Orders:</p>
+
+            <form action="orderList">
+                <button type="submit" class="btn btn-primary">
+                    View Orders
+                </button>
+            </form>
+
+
         </c:if>
 
         <p><br>Create your own carport:</p>
