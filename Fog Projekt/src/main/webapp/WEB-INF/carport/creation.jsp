@@ -14,16 +14,26 @@
 
     <jsp:body>
 
-        <p>You should be logged in now</p>
+        <p>Choose measurement for your carport:</p>
 
-        <c:if test="${sessionScope.user != null}">
-            <p>You are logged in with the role of "${sessionScope.user.role}".</p>
-        </c:if>
+        <form action="svg" method="post">
+            <select name="length">
+                <option selected>Length</option>
+                <option value="510">510</option>
+                <option value="540">540</option>
+                <option value="570">570</option>
+                <option value="600">600</option>
+            </select>
+            <select name="width">
+                <option selected>Width</option>
+                <option value="620">620</option>
+                <option value="680">680</option>
+                <option value="740">740</option>
+                <option value="800">800</option>
+            </select>
+            <button class="btn btn-primary" name="svg">Add to cart</button>
+        </form>
 
-        <c:if test="${sessionScope.user == null}">
-            <p>You are not logged in yet. You can do it here: <a
-                    href="../../login.jsp">Login</a></p>
-        </c:if>
 
     </jsp:body>
 
