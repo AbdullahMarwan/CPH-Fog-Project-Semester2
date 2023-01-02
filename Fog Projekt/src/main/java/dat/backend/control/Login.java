@@ -44,10 +44,10 @@ public class Login extends HttpServlet
 
         try
         {
-            User user = UserFacade.login(username, password, connectionPool);
+            User user = UserFacade.login(username, password);
             session = request.getSession();
             session.setAttribute("user", user); // adding user object to session scope
-            List<Material> materialList = CarportFacade.getMaterials(connectionPool);
+            List<Material> materialList = CarportFacade.getMaterials();
             request.setAttribute("materialList", materialList);
             request.getRequestDispatcher("WEB-INF/welcome.jsp").forward(request, response);
         }

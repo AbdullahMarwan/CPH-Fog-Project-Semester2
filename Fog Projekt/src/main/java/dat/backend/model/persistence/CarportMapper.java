@@ -2,13 +2,29 @@ package dat.backend.model.persistence;
 
 import dat.backend.model.entities.Carport;
 import dat.backend.model.entities.Material;
+import dat.backend.model.entities.User;
+import jakarta.persistence.TypedQuery;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class CarportMapper {
 
+    static List<Material> getMaterials() {
+        Logger.getLogger("web").log(Level.INFO, "");
+
+        PersistenceManager persistenceManager = new PersistenceManager("fog-user-unit");
+
+        TypedQuery<Material> query = persistenceManager.getEntityManager().createNamedQuery("getAllMaterials", Material.class);
+
+        return query.getResultList();
+    }
+
+
+    /*
     static List<Material> getMaterials(dat.backend.model.persistence.ConnectionPool connectionPool) {
         List<Material> materialList = new ArrayList<>();
 
@@ -36,5 +52,7 @@ public class CarportMapper {
         }
         return materialList;
     }
+
+     */
 
 }

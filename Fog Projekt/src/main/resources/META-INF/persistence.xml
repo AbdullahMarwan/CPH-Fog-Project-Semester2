@@ -6,6 +6,8 @@
     <persistence-unit name="fog-user-unit">
         <description>Hibernate EntityManager Demo</description>
         <class>dat.backend.model.entities.User</class>
+        <class>dat.backend.model.entities.Material</class>
+        
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>

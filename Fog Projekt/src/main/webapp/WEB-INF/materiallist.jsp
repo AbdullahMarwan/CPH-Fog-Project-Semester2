@@ -26,7 +26,7 @@
             <c:forEach var="item" items="${requestScope.materialList}">
                 <tr>
                     <td>
-                            ${item.id}
+                            ${item.materialId}
                     </td>
                     <td>
                             ${item.name}

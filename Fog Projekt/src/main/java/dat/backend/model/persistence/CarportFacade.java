@@ -7,8 +7,8 @@ import java.util.List;
 
 public class CarportFacade {
 
-    public static List<Material> getMaterials(ConnectionPool connectionPool) {
-        return CarportMapper.getMaterials(connectionPool);
+    public static List<Material> getMaterials() {
+        return CarportMapper.getMaterials();
     }
 
     /*

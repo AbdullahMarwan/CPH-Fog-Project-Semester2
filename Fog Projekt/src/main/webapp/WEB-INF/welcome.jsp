@@ -15,6 +15,7 @@
     <jsp:body>
 
         <c:if test="${sessionScope.user.role == 'admin'}">
+
             <p><br>View Database Materials:</p>
 
             <form action="materialList">
@@ -30,7 +31,6 @@
                     View Orders
                 </button>
             </form>
-
 
         </c:if>
 

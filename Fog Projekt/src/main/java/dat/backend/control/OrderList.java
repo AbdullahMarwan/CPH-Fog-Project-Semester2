@@ -20,7 +20,7 @@ public class OrderList extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (Authentication.isUserLoggedIn(request)) {
-            List<Material> materialList = CarportFacade.getMaterials(connectionPool);
+            List<Material> materialList = CarportFacade.getMaterials();
             request.setAttribute("materialList", materialList);
             request.getRequestDispatcher("WEB-INF/orderlist.jsp").forward(request, response);
         } else {
