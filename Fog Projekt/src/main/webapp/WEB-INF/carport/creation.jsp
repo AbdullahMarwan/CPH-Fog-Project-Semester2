@@ -19,16 +19,16 @@
         <form action="svg" method="post">
             <select name="length">
                 <option selected>Length</option>
-                <option value="470">470</option>
-                <option value="780">780</option>
-                <option value="1090">1090</option>
+                <option value="470">470cm</option>
+                <option value="780">780cm</option>
+                <option value="1090">1090cm</option>
             </select>
             <select name="width">
                 <option selected>Width</option>
-                <option value="300">300</option>
-                <option value="600">600</option>
-                <option value="900">900</option>
-                <option value="1200">1200</option>
+                <option value="300">300cm</option>
+                <option value="600">600cm</option>
+                <option value="900">900cm</option>
+                <option value="1200">1200cm</option>
             </select>
             <div class="form-check mt-3">
                 <label class="form-check-label" for="checkbox">
