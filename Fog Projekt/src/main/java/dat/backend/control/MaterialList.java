@@ -3,7 +3,6 @@ package dat.backend.control;
 import dat.backend.model.config.ApplicationStart;
 import dat.backend.model.entities.Material;
 import dat.backend.model.persistence.CarportFacade;
-import dat.backend.model.persistence.ConnectionPool;
 import dat.backend.model.services.Authentication;
 
 import javax.servlet.*;
@@ -14,8 +13,6 @@ import java.util.List;
 
 @WebServlet(name = "MaterialList", value = "/materialList")
 public class MaterialList extends HttpServlet {
-
-    private static ConnectionPool connectionPool = ApplicationStart.getConnectionPool();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
