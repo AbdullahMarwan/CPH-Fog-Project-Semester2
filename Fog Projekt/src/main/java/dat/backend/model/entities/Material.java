@@ -1,15 +1,22 @@
 package dat.backend.model.entities;
 
+import jakarta.persistence.*;
+
+@Entity
+@NamedQuery(name="getAllMaterials", query = "SELECT m FROM Material m")
+@Table(name = "materials")
 public class Material {
-    private int id;
+    @Id
+    @Column(name = "material_id")
+    private int materialId;
     private String name;
     private int price;
     private int unitId;
     private String description;
     private int length;
 
-    public Material(int id, String name, int price, int unitId, String description, int length) {
-        this.id = id;
+    public Material(int materialId, String name, int price, int unitId, String description, int length) {
+        this.materialId = materialId;
         this.name = name;
         this.price = price;
         this.unitId = unitId;
@@ -17,12 +24,16 @@ public class Material {
         this.length = length;
     }
 
-    public int getId() {
-        return id;
+    public Material() {
+
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getMaterialId() {
+        return materialId;
+    }
+
+    public void setMaterialId(int materialId) {
+        this.materialId = materialId;
     }
 
     public String getName() {
@@ -65,3 +76,4 @@ public class Material {
         this.unitId = unitId;
     }
 }
+

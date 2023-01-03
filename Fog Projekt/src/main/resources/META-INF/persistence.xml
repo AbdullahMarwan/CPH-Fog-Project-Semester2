@@ -3,9 +3,12 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
              version="2.0">
-    <persistence-unit name="fog-user-unit">
+    <persistence-unit name="fog-unit">
         <description>Hibernate EntityManager Demo</description>
         <class>dat.backend.model.entities.User</class>
+        <class>dat.backend.model.entities.Material</class>
+        <class>dat.backend.model.entities.Order</class>
+        <class>dat.backend.model.entities.Carport</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>

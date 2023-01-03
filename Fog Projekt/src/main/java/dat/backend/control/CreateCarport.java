@@ -14,7 +14,6 @@ public class CreateCarport extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         Locale.setDefault(new Locale("US"));
 
-
         //request.setAttribute("svg", carport.toString());
         request.getRequestDispatcher("WEB-INF/carport/creation.jsp").forward(request, response);
     }

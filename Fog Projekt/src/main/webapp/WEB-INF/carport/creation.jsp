@@ -19,19 +19,24 @@
         <form action="svg" method="post">
             <select name="length">
                 <option selected>Length</option>
-                <option value="510">510</option>
-                <option value="540">540</option>
-                <option value="570">570</option>
-                <option value="600">600</option>
+                <option value="470">470cm</option>
+                <option value="780">780cm</option>
+                <option value="1090">1090cm</option>
             </select>
             <select name="width">
                 <option selected>Width</option>
-                <option value="620">620</option>
-                <option value="680">680</option>
-                <option value="740">740</option>
-                <option value="800">800</option>
+                <option value="300">300cm</option>
+                <option value="600">600cm</option>
+                <option value="900">900cm</option>
+                <option value="1200">1200cm</option>
             </select>
-            <button class="btn btn-primary" name="svg">Add to cart</button>
+            <div class="form-check mt-3">
+                <label class="form-check-label" for="checkbox">
+                    <input class="form-check-input" type="checkbox" name="checkbox" id="checkbox">
+                    Include Shed
+                </label>
+            </div>
+            <button class="btn btn-primary" name="svg">Create Carport</button>
         </form>
 
 

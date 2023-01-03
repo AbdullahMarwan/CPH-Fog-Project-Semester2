@@ -36,7 +36,7 @@ public class Signup extends HttpServlet {
         String password = request.getParameter("password");
 
         try {
-            User user = UserFacade.createUser(username, password, "user", connectionPool);
+            User user = UserFacade.createUser(username, password, "user");
 
             session = request.getSession();
             session.setAttribute("user", user); // adding user object to session scope

@@ -2,6 +2,7 @@ package dat.backend.control;
 
 import dat.backend.model.config.ApplicationStart;
 import dat.backend.model.entities.Material;
+import dat.backend.model.entities.Order;
 import dat.backend.model.entities.User;
 import dat.backend.model.exceptions.DatabaseException;
 import dat.backend.model.persistence.CarportFacade;
@@ -44,11 +45,13 @@ public class Login extends HttpServlet
 
         try
         {
-            User user = UserFacade.login(username, password, connectionPool);
+            User user = UserFacade.login(username, password);
             session = request.getSession();
             session.setAttribute("user", user); // adding user object to session scope
-            List<Material> materialList = CarportFacade.getMaterials(connectionPool);
+            List<Material> materialList = CarportFacade.getMaterials();
             request.setAttribute("materialList", materialList);
+            List<Order> orderList = CarportFacade.getOrders();
+            request.setAttribute("orderList", orderList);
             request.getRequestDispatcher("WEB-INF/welcome.jsp").forward(request, response);
         }
         catch (DatabaseException e)

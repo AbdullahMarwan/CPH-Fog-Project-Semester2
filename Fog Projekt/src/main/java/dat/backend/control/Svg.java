@@ -21,15 +21,23 @@ public class Svg extends HttpServlet {
         HttpSession session = request.getSession();
         int length = Integer.parseInt(request.getParameter("length"));
         int width = Integer.parseInt(request.getParameter("width"));
-        String viewBox = SVG.addViewBox(0, 0, length, width);
+        String viewBox = SVG.addViewBox(-30, -30, length+80, width+80);
 
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         Locale.setDefault(new Locale("US"));
 
         SVG carport = CarportSVG.createNewSVG(0, 0, 100, 60, viewBox);
-        //carport = CarportSVG.addPerforatedTapeShed(carport, 0, 0);
-        carport = CarportSVG.addBeams(carport);
+        carport = CarportSVG.addVerticalBeams(carport, length, width);
+        carport = CarportSVG.addHorizontalBeams(carport, length, width);
+        carport = CarportSVG.addOutlinedEdges(carport, length, width);
+        carport = CarportSVG.addPerforatedTapeShed(carport, length, width);
+        carport = CarportSVG.addSquares(carport, length, width);
+        carport = CarportSVG.addArrowHead(carport, length, width);
+        carport = CarportSVG.addShed(carport, length, width);
+
+
+
 
 
         request.setAttribute("svg", carport.toString());

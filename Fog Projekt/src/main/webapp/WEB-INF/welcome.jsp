@@ -15,11 +15,20 @@
     <jsp:body>
 
         <c:if test="${sessionScope.user.role == 'admin'}">
+
             <p><br>View Database Materials:</p>
 
             <form action="materialList">
                 <button type="submit" class="btn btn-primary">
                     View Material List
+                </button>
+            </form>
+
+            <p><br>View Customer Orders:</p>
+
+            <form action="orderList">
+                <button type="submit" class="btn btn-primary">
+                    View Orders
                 </button>
             </form>
 
