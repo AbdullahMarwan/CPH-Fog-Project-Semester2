@@ -2,6 +2,7 @@ package dat.backend.model.persistence;
 
 import dat.backend.model.entities.Carport;
 import dat.backend.model.entities.Material;
+import dat.backend.model.entities.Order;
 import dat.backend.model.entities.User;
 import jakarta.persistence.TypedQuery;
 
@@ -22,4 +23,16 @@ public class CarportMapper {
 
         return query.getResultList();
     }
+
+    static List<Order> getOrders() {
+        Logger.getLogger("web").log(Level.INFO, "");
+
+        PersistenceManager persistenceManager = new PersistenceManager("fog-unit");
+
+        TypedQuery<Order> query = persistenceManager.getEntityManager().createNamedQuery("getAllOrders", Order.class);
+
+        return query.getResultList();
+    }
+
+
 }

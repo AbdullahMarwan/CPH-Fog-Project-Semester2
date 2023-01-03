@@ -7,7 +7,7 @@
         <description>Hibernate EntityManager Demo</description>
         <class>dat.backend.model.entities.User</class>
         <class>dat.backend.model.entities.Material</class>
-
+        <class>dat.backend.model.entities.Order</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>

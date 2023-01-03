@@ -5,11 +5,11 @@
 
 <t:fogtemplate>
     <jsp:attribute name="header">
-         Material List
+         Order List
     </jsp:attribute>
 
     <jsp:attribute name="footer">
-        Material List
+        Order List
     </jsp:attribute>
 
     <jsp:body>
@@ -17,25 +17,21 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>Id</th>
-                <th>Item</th>
-                <th>Price</th>
-                <th>Description</th>
+                <th>Order Id</th>
+                <th>Customer Name</th>
+                <th>Order Date</th>
             </tr>
             </thead>
-            <c:forEach var="item" items="${requestScope.materialList}">
+            <c:forEach var="item" items="${requestScope.orderList}">
                 <tr>
                     <td>
-                            ${item.id}
+                            ${item.orderId}
                     </td>
                     <td>
-                            ${item.name}
+                            ${item.customerName}
                     </td>
                     <td>
-                            ${item.price}
-                    </td>
-                    <td>
-                            ${item.description}
+                            ${item.orderDate}
                     </td>
                 </tr>
             </c:forEach>

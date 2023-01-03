@@ -2,6 +2,7 @@ package dat.backend.control;
 
 import dat.backend.model.config.ApplicationStart;
 import dat.backend.model.entities.Material;
+import dat.backend.model.entities.Order;
 import dat.backend.model.persistence.CarportFacade;
 import dat.backend.model.persistence.ConnectionPool;
 import dat.backend.model.services.Authentication;
@@ -20,8 +21,8 @@ public class OrderList extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (Authentication.isUserLoggedIn(request)) {
-            List<Material> materialList = CarportFacade.getMaterials();
-            request.setAttribute("materialList", materialList);
+            List<Order> orderList = CarportFacade.getOrders();
+            request.setAttribute("orderList", orderList);
             request.getRequestDispatcher("WEB-INF/orderlist.jsp").forward(request, response);
         } else {
             response.sendRedirect("index.jsp");
