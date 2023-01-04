@@ -14,6 +14,48 @@
 
     <jsp:body>
 
+        <button onclick="history.back()" class="btn btn-primary">Go Back</button>
+
+        <br><br>
+
+        ${requestScope.length}
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Length</th>
+                <th>Width</th>
+                <th>Price</th>
+                <th>Material Type</th>
+            </tr>
+            </thead>
+            <tr>
+                <td>
+                        ${requestScope.length}
+                </td>
+                <td>
+                        ${requestScope.width}
+                </td>
+                <td>
+                        ${item.price}
+                </td>
+                <td>
+                        ${item.description}
+                </td>
+            </tr>
+        </table>
+
+        <h4><br>Are you satisfied with your carport dimensions and price?</h4>
+        <form action="createOrder">
+            <button type="submit" class="btn btn-primary">
+                Confirm Order
+            </button>
+        </form>
+
+        <br>
+
+        <h3><br>SVG Drawing of your chosen carport:</h3>
+
         ${requestScope.svg}
 
     </jsp:body>

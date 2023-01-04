@@ -1,5 +1,6 @@
 package dat.backend.control;
 
+import dat.backend.model.entities.Carport;
 import dat.backend.model.services.CarportSVG;
 import dat.backend.model.services.SVG;
 
@@ -21,6 +22,13 @@ public class Svg extends HttpServlet {
         HttpSession session = request.getSession();
         int length = Integer.parseInt(request.getParameter("length"));
         int width = Integer.parseInt(request.getParameter("width"));
+
+        request.getSession().setAttribute("length", length);
+
+        request.setAttribute("length", length);
+        request.setAttribute("width", width);
+
+
         String viewBox = SVG.addViewBox(-30, -30, length+80, width+80);
 
         request.setCharacterEncoding("UTF-8");
@@ -35,10 +43,6 @@ public class Svg extends HttpServlet {
         carport = CarportSVG.addSquares(carport, length, width);
         carport = CarportSVG.addArrowHead(carport, length, width);
         carport = CarportSVG.addShed(carport, length, width);
-
-
-
-
 
         request.setAttribute("svg", carport.toString());
         request.getRequestDispatcher("WEB-INF/svgdrawing.jsp").forward(request, response);
