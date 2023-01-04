@@ -7,31 +7,49 @@ public class CarportSVG
         return new SVG(x, y, height, width, viewbox);
     }
 
-    public static SVG addPerforatedTapeShed(SVG svg, int length, int width) {
+    public static SVG addPerforatedTapeShed(SVG svg, int length, int width, boolean hasShed) {
         int x = 100;
         int y = 35;
         int exactLength = length - length%50;
 
-        svg.addDashedLine(x, y, exactLength-200, width-y);
-        svg.addDashedLine(x, width-y, exactLength-200, y);
+        if(!hasShed) {
+            svg.addDashedLine(x, y, exactLength-50, width-y);
+            svg.addDashedLine(x, width-y, exactLength-50, y);
+        } else {
+            svg.addDashedLine(x, y, exactLength - 200, width - y);
+            svg.addDashedLine(x, width - y, exactLength - 200, y);
+        }
 
         return svg;
     }
 
-    public static SVG addSquares(SVG svg, int length, int width) {
+    public static SVG addSquares(SVG svg, int length, int width, boolean hasShed) {
         int x = 100;
         int y = 35;
         int exactLength = length - length%50;
 
-        svg.addRect(x, y, 8, 8);
-        svg.addRect((exactLength-200)/2 + 50, y, 8, 8);
-        svg.addRect(exactLength-200, y, 8, 8);
-        svg.addRect(x, width/2, 8, 8);
-        svg.addRect((exactLength-200)/2 + 50, width/2, 8, 8);
-        svg.addRect(exactLength-200, width/2, 8, 8);
-        svg.addRect(x, width-y, 8, 8);
-        svg.addRect((exactLength-200)/2 + 50, width-y, 8, 8);
-        svg.addRect(exactLength-200, width-y, 8, 8);
+        if(!hasShed) {
+            svg.addRect(x, y, 8, 8);
+            svg.addRect((exactLength-50)/2 + 50, y, 8, 8);
+            svg.addRect(exactLength-50, y, 8, 8);
+            svg.addRect(x, width/2, 8, 8);
+            svg.addRect((exactLength-50)/2 + 50, width/2, 8, 8);
+            svg.addRect(exactLength-50, width/2, 8, 8);
+            svg.addRect(x, width-y, 8, 8);
+            svg.addRect((exactLength-50)/2 + 50, width-y, 8, 8);
+            svg.addRect(exactLength-50, width-y, 8, 8);
+        } else {
+            svg.addRect(x, y, 8, 8);
+            svg.addRect((exactLength-200)/2 + 50, y, 8, 8);
+            svg.addRect(exactLength-200, y, 8, 8);
+            svg.addRect(x, width/2, 8, 8);
+            svg.addRect((exactLength-200)/2 + 50, width/2, 8, 8);
+            svg.addRect(exactLength-200, width/2, 8, 8);
+            svg.addRect(x, width-y, 8, 8);
+            svg.addRect((exactLength-200)/2 + 50, width-y, 8, 8);
+            svg.addRect(exactLength-200, width-y, 8, 8);
+        }
+
         return svg;
     }
 
