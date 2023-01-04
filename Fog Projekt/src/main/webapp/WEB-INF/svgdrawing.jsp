@@ -18,8 +18,6 @@
 
         <br><br>
 
-        ${requestScope.length}
-
         <table class="table table-striped">
             <thead>
             <tr>
@@ -37,10 +35,10 @@
                         ${requestScope.width}
                 </td>
                 <td>
-                        ${item.price}
+                        
                 </td>
                 <td>
-                        ${item.description}
+
                 </td>
             </tr>
         </table>

@@ -22,15 +22,16 @@ public class Svg extends HttpServlet {
         HttpSession session = request.getSession();
         int length = Integer.parseInt(request.getParameter("length"));
         int width = Integer.parseInt(request.getParameter("width"));
+
         boolean hasShed = false;
-        if(request.getParameter("checkbox") != null){
+        if (request.getParameter("checkbox") != null) {
             hasShed = true;
         }
-        request.getSession().setAttribute("length", length);
+
         request.setAttribute("length", length);
         request.setAttribute("width", width);
 
-        String viewBox = SVG.addViewBox(-30, -30, length+80, width+80);
+        String viewBox = SVG.addViewBox(-30, -30, length + 80, width + 80);
 
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
@@ -43,7 +44,7 @@ public class Svg extends HttpServlet {
         carport = CarportSVG.addPerforatedTapeShed(carport, length, width, hasShed);
         carport = CarportSVG.addSquares(carport, length, width, hasShed);
         carport = CarportSVG.addArrowHead(carport, length, width);
-        if(hasShed) {
+        if (hasShed) {
             carport = CarportSVG.addShed(carport, length, width);
         }
 
