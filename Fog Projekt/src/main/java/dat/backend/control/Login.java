@@ -7,7 +7,6 @@ import dat.backend.model.entities.User;
 import dat.backend.model.exceptions.DatabaseException;
 import dat.backend.model.persistence.CarportFacade;
 import dat.backend.model.persistence.UserFacade;
-import dat.backend.model.persistence.ConnectionPool;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,14 +20,6 @@ import java.util.List;
 @WebServlet(name = "login", urlPatterns = {"/login"} )
 public class Login extends HttpServlet
 {
-    private ConnectionPool connectionPool;
-
-    @Override
-    public void init() throws ServletException
-    {
-        this.connectionPool = ApplicationStart.getConnectionPool();
-    }
-
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
     {
         // You shouldn't end up here with a GET-request, thus you get sent back to frontpage

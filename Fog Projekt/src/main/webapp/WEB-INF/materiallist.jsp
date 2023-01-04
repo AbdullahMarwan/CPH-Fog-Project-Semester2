@@ -13,6 +13,9 @@
     </jsp:attribute>
 
     <jsp:body>
+        <button onclick="history.back()" class="btn btn-primary">Go Back</button>
+
+        <br><br>
 
         <table class="table table-striped">
             <thead>

@@ -1,7 +1,5 @@
 package dat.backend.model.config;
 
-import dat.backend.model.persistence.ConnectionPool;
-
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
@@ -21,8 +19,6 @@ import java.util.logging.Logger;
 @WebListener
 public class ApplicationStart implements ServletContextListener
 {
-    private static ConnectionPool connectionPool;
-
     public ApplicationStart()
     {
 
@@ -35,7 +31,6 @@ public class ApplicationStart implements ServletContextListener
         try
         {
             Class.forName("org.slf4j.impl.StaticLoggerBinder");
-            connectionPool = new ConnectionPool();
         }
         catch (ClassNotFoundException e)
         {
@@ -43,17 +38,11 @@ public class ApplicationStart implements ServletContextListener
         }
     }
 
-    public static ConnectionPool getConnectionPool()
-    {
-            return connectionPool;
-    }
-
     @Override
     public void contextDestroyed(ServletContextEvent sce)
     {
         Logger.getLogger("web").log(Level.INFO, "Shutting down application and connection pool");
         unregisterJDBCdrivers();
-        connectionPool.close();
     }
 
     private void unregisterJDBCdrivers()

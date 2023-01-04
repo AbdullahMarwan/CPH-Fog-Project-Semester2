@@ -5,11 +5,11 @@
 
 <t:fogtemplate>
     <jsp:attribute name="header">
-         Welcome to the logged in area
+         Create your carport
     </jsp:attribute>
 
     <jsp:attribute name="footer">
-        Logged in area
+        Create your carport
     </jsp:attribute>
 
     <jsp:body>
