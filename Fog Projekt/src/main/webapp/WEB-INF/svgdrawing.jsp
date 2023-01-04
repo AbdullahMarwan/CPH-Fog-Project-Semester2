@@ -9,7 +9,7 @@
     </jsp:attribute>
 
     <jsp:attribute name="footer">
-        SVG
+         SVG
     </jsp:attribute>
 
     <jsp:body>
@@ -24,7 +24,7 @@
                 <th>Length</th>
                 <th>Width</th>
                 <th>Price</th>
-                <th>Material Type</th>
+                <th>Has a Shed</th>
             </tr>
             </thead>
             <tr>
@@ -35,16 +35,19 @@
                         ${requestScope.width}
                 </td>
                 <td>
-                        
+                        ${requestScope.user}
                 </td>
                 <td>
-
+                        ${requestScope.hasShed}
                 </td>
             </tr>
         </table>
 
         <h4><br>Are you satisfied with your carport dimensions and price?</h4>
         <form action="createOrder">
+            <input type="hidden" name="length" value="${requestScope.length}"/>
+            <input type="hidden" name="width" value="${requestScope.width}"/>
+            <input type="hidden" name="hasShed" value="${requestScope.hasShed}"/>
             <button type="submit" class="btn btn-primary">
                 Confirm Order
             </button>

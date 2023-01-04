@@ -30,6 +30,7 @@ public class Svg extends HttpServlet {
 
         request.setAttribute("length", length);
         request.setAttribute("width", width);
+        request.setAttribute("hasShed", hasShed);
 
         String viewBox = SVG.addViewBox(-30, -30, length + 80, width + 80);
 
@@ -50,5 +51,9 @@ public class Svg extends HttpServlet {
 
         request.setAttribute("svg", carport.toString());
         request.getRequestDispatcher("WEB-INF/svgdrawing.jsp").forward(request, response);
+        //Scenario 1: Data is valid and transaction is complete to database
+        //-> Redirect to order confirmation/receipt with order id only or id and content of order
+        //Scenario 2: Data is valid and transaction to datase is not complete (maybe because of DB exception or DB connection error)
+        //-> Redirect to error page with error description and uniquely generated temporary shoppingcart content ID
     }
 }
