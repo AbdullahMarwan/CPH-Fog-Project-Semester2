@@ -1,6 +1,7 @@
 package dat.backend.control;
 
 import dat.backend.model.entities.Carport;
+import dat.backend.model.entities.User;
 import dat.backend.model.services.CarportSVG;
 import dat.backend.model.services.SVG;
 
@@ -22,6 +23,8 @@ public class Svg extends HttpServlet {
         HttpSession session = request.getSession();
         int length = Integer.parseInt(request.getParameter("length"));
         int width = Integer.parseInt(request.getParameter("width"));
+        User user = (User) session.getAttribute("user");
+        int randomPrice = (int) (Math.random() * (10000 - 1000)) + 1000;
 
         boolean hasShed = false;
         if (request.getParameter("checkbox") != null) {
@@ -31,6 +34,8 @@ public class Svg extends HttpServlet {
         request.setAttribute("length", length);
         request.setAttribute("width", width);
         request.setAttribute("hasShed", hasShed);
+        request.setAttribute("userName", user.getUsername());
+        request.setAttribute("price", randomPrice);
 
         String viewBox = SVG.addViewBox(-30, -30, length + 80, width + 80);
 

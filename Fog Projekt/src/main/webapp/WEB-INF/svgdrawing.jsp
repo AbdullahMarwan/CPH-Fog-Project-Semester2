@@ -24,18 +24,22 @@
                 <th>Length</th>
                 <th>Width</th>
                 <th>Price</th>
+                <th>Username</th>
                 <th>Has a Shed</th>
             </tr>
             </thead>
             <tr>
                 <td>
-                        ${requestScope.length}
+                        ${requestScope.length}cm
                 </td>
                 <td>
-                        ${requestScope.width}
+                        ${requestScope.width}cm
                 </td>
                 <td>
-                        ${requestScope.user}
+                        ${requestScope.price}
+                </td>
+                <td>
+                        ${requestScope.userName}
                 </td>
                 <td>
                         ${requestScope.hasShed}
