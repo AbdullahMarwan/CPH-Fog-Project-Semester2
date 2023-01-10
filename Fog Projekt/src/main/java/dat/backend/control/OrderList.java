@@ -1,4 +1,4 @@
-package dat.backend.control.lists;
+package dat.backend.control;
 
 import dat.backend.model.config.ApplicationStart;
 import dat.backend.model.entities.Order;

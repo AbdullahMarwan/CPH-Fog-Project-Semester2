@@ -1,4 +1,4 @@
-package dat.backend.control.lists;
+package dat.backend.control;
 
 import javax.servlet.*;
 import javax.servlet.http.*;

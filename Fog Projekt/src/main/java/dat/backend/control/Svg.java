@@ -1,4 +1,4 @@
-package dat.backend.control.carport;
+package dat.backend.control;
 
 import dat.backend.model.entities.Carport;
 import dat.backend.model.entities.User;

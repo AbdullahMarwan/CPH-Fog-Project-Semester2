@@ -48,10 +48,11 @@
         </table>
 
         <h4><br>Are you satisfied with your carport dimensions and price?</h4>
-        <form action="createOrder">
+        <form action="createOrder" method="post">
             <input type="hidden" name="length" value="${requestScope.length}"/>
             <input type="hidden" name="width" value="${requestScope.width}"/>
             <input type="hidden" name="hasShed" value="${requestScope.hasShed}"/>
+            <input type="hidden" name="price" value="${requestScope.price}"/>
             <button type="submit" class="btn btn-primary">
                 Confirm Order
             </button>

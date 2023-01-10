@@ -13,6 +13,9 @@
     </jsp:attribute>
 
     <jsp:body>
+        <button onclick="history.back()" class="btn btn-primary">Go Back</button>
+
+        <br><br>
 
         <p>Choose measurement for your carport:</p>
 

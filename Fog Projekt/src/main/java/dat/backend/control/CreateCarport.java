@@ -1,18 +1,15 @@
-package dat.backend.control.carport;
-
-import dat.backend.model.entities.User;
+package dat.backend.control;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "CreateOrder", value = "/createOrder")
-public class CreateOrder extends HttpServlet {
+@WebServlet(name = "CreateCarport", value = "/createCarport")
+public class CreateCarport extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        User user = (User) request.getSession().getAttribute("user");
-
+        request.getRequestDispatcher("WEB-INF/carport/creation.jsp").forward(request, response);
     }
 
     @Override

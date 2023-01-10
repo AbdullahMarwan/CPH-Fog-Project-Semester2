@@ -8,21 +8,24 @@ import jakarta.persistence.*;
 public class Carport {
     @Id
     @Column(name = "carport_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int carportId;
     private int length;
     private int width;
     @Column(name = "total_price")
     private int totalPrice;
     @Column(name = "offer_accepted")
-    private boolean offerAccepted;
+    private boolean offerAccepted = false;
     @Column(name = "payment_paid")
-    private boolean paymentPaid;
+    private boolean paymentPaid = false;
     @Column(name = "has_shed")
     private boolean hasShed;
     @Column(name = "material_id")
-    private int materialId;
+    private int materialId = 1;
+    @Column(name = "order_id")
+    private int orderId;
 
-    public Carport(int carportId, int length, int width, int totalPrice, boolean offerAccepted, boolean paymentPaid, boolean hasShed, int materialId) {
+    public Carport(int carportId, int length, int width, int totalPrice, boolean offerAccepted, boolean paymentPaid, boolean hasShed, int materialId, int orderId) {
         this.carportId = carportId;
         this.length = length;
         this.width = width;
@@ -31,10 +34,19 @@ public class Carport {
         this.paymentPaid = paymentPaid;
         this.hasShed = hasShed;
         this.materialId = materialId;
+        this.orderId = orderId;
+    }
+
+    public Carport(int length, int width, int totalPrice, boolean hasShed) {
+        this.length = length;
+        this.width = width;
+        this.totalPrice = totalPrice;
+        this.hasShed = hasShed;
     }
 
     public Carport() {
     }
+
 
     public int getCarportId() {
         return carportId;
@@ -98,5 +110,13 @@ public class Carport {
 
     public void setMaterialId(int materialId) {
         this.materialId = materialId;
+    }
+
+    public int getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
     }
 }

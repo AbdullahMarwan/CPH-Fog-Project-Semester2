@@ -16,7 +16,13 @@
         <p>A Fog Employee will confirm your order</p>
 
         <p><br>Return to the frontpage:</p>
-        <a class="btn btn-primary" href="${pageContext.request.contextPath}/WEB-INF/welcome.jsp" role="button"></a>
+        <%-- <a class="btn btn-primary" href="${pageContext.request.contextPath}/WEB-INF/welcome.jsp" role="button"></a> --%>
+
+        <form action="welcomeServlet">
+            <button type="submit" class="btn btn-primary">
+                Return
+            </button>
+        </form>
     </jsp:body>
 
 </t:fogtemplate>

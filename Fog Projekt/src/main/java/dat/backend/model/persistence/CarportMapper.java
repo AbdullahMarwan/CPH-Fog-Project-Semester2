@@ -6,8 +6,6 @@ import dat.backend.model.entities.Order;
 import dat.backend.model.entities.User;
 import jakarta.persistence.TypedQuery;
 
-import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -34,5 +32,26 @@ public class CarportMapper {
         return query.getResultList();
     }
 
+    static void createOrder(Order order) {
+        Logger.getLogger("web").log(Level.INFO, "");
 
+        PersistenceManager persistenceManager = new PersistenceManager("fog-unit");
+
+        persistenceManager.entityTransaction().begin();
+
+        persistenceManager.getEntityManager().persist((order));
+        persistenceManager.entityTransaction().commit();
+    }
+
+
+    public static void createCarport(Carport carport) {
+        Logger.getLogger("web").log(Level.INFO, "");
+
+        PersistenceManager persistenceManager = new PersistenceManager("fog-unit");
+
+        persistenceManager.entityTransaction().begin();
+
+        persistenceManager.getEntityManager().persist((carport));
+        persistenceManager.entityTransaction().commit();
+    }
 }

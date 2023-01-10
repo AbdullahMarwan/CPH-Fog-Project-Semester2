@@ -10,10 +10,12 @@ import java.sql.Timestamp;
 public class Order {
     @Id
     @Column(name = "order_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int orderId;
     @Column(name = "customer_name")
     private String customerName;
     @Column(name = "order_date")
+    @Temporal(TemporalType.TIMESTAMP)
     private Timestamp orderDate;
 
     public Order(int orderId, String customerName, Timestamp orderDate) {
@@ -49,4 +51,5 @@ public class Order {
     public void setOrderDate(Timestamp orderDate) {
         this.orderDate = orderDate;
     }
+
 }
