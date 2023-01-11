@@ -17,22 +17,29 @@
         <c:if test="${sessionScope.user.role == 'admin'}">
 
             <p><br>View Database Materials:</p>
-
             <form action="materialList">
                 <button type="submit" class="btn btn-primary">
                     View Material List
                 </button>
             </form>
 
-            <p><br>View Customer Orders:</p>
-
-            <form action="orderList">
+            <p><br>View All Customer Orders:</p>
+            <form action="orderList" method="get">
+                    <%--<input type="hidden" name="chosenList" value="allOrdersList"/> --%>
                 <button type="submit" class="btn btn-primary">
-                    View Orders
+                    View Customer Orders
                 </button>
             </form>
 
         </c:if>
+
+        <p><br>View Own Orders:</p>
+        <form action="orderListCustomerName" method="get">
+                <%--<input type="hidden" name="chosenList" value="ownOrderList"/> --%>
+            <button type="submit" class="btn btn-primary">
+                View Orders
+            </button>
+        </form>
 
         <p><br>Create your own carport:</p>
         <form action="createCarport">

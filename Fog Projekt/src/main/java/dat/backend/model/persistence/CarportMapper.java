@@ -32,6 +32,17 @@ public class CarportMapper {
         return query.getResultList();
     }
 
+    static List<Order> getOrdersByCustomerName(String customerName) {
+        Logger.getLogger("web").log(Level.INFO, "");
+
+        PersistenceManager persistenceManager = new PersistenceManager("fog-unit");
+
+        TypedQuery<Order> query = persistenceManager.getEntityManager().createNamedQuery("getOrdersCustomerName", Order.class);
+        query.setParameter("customerName", customerName);
+
+        return query.getResultList();
+    }
+
     static void createOrder(Order order) {
         Logger.getLogger("web").log(Level.INFO, "");
 

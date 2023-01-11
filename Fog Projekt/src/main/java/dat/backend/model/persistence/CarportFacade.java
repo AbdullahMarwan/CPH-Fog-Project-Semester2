@@ -17,6 +17,9 @@ public class CarportFacade {
         return CarportMapper.getOrders();
     }
 
+    public static List<Order> getOrdersByCustomerName(String customerName) {
+        return CarportMapper.getOrdersByCustomerName(customerName);
+    }
     public static void createOrder(Order order) {
         CarportMapper.createOrder(order);
     }
@@ -25,9 +28,4 @@ public class CarportFacade {
         CarportMapper.createCarport(carport);
     }
 
-    /*
-    public static List<Carport> Carport(ConnectionPool connectionPool) {
-        return CarportMapper.Carport(connectionPool);
-    }
-     */
 }

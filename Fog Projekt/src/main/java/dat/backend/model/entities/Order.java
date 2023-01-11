@@ -5,7 +5,10 @@ import jakarta.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
-@NamedQuery(name = "getAllOrders", query = "SELECT o FROM Order o")
+@NamedQueries({
+        @NamedQuery(name = "getAllOrders", query = "SELECT o FROM Order o"),
+        @NamedQuery(name = "getOrdersCustomerName", query = "SELECT o FROM Order o WHERE o.customerName = :customerName"),
+        })
 @Table(name = "orders")
 public class Order {
     @Id
