@@ -23,6 +23,7 @@
                 <th>Order Id</th>
                 <th>Customer Name</th>
                 <th>Order Date</th>
+                <th>Action</th>
             </tr>
             </thead>
             <c:forEach var="item" items="${requestScope.orderList}">
@@ -35,6 +36,20 @@
                     </td>
                     <td>
                             ${item.orderDate}
+                    </td>
+                    <td>
+                        <form action="orderDetails" method="post">
+                            <input type="hidden" name="order_id" value="${item.orderId}"/>
+                            <button type="submit" class="btn btn-primary">
+                                View Details
+                            </button>
+                        </form>
+                        <form action="deleterOrder" method="post">
+                            <input type="hidden" name="order_id" value="${item.orderId}"/>
+                            <button type="submit" class="btn btn-primary">
+                                Delete Order
+                            </button>
+                        </form>
                     </td>
                 </tr>
             </c:forEach>

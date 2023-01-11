@@ -17,6 +17,10 @@ public class CarportFacade {
         return CarportMapper.getOrders();
     }
 
+    public static Carport getSpecificCarport(int orderId){
+        return CarportMapper.getSpecificCarport(orderId);
+    }
+
     public static List<Order> getOrdersByCustomerName(String customerName) {
         return CarportMapper.getOrdersByCustomerName(customerName);
     }
