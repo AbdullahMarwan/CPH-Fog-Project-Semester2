@@ -25,7 +25,7 @@
                 <th>Width</th>
                 <th>Price</th>
                 <th>Username</th>
-                <th>Has a Shed</th>
+                <th>Has a Shed?</th>
             </tr>
             </thead>
             <tr>
