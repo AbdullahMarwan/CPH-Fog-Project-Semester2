@@ -53,6 +53,16 @@ public class CarportMapper {
         return carport;
     }
 
+    static Order getSpecificOrder(int orderId) {
+        Logger.getLogger("web").log(Level.INFO, "");
+
+        PersistenceManager persistenceManager = new PersistenceManager("fog-unit");
+
+        Order order = persistenceManager.getEntityManager().find(Order.class, orderId);
+
+        return order;
+    }
+
     static void createOrder(Order order) {
         Logger.getLogger("web").log(Level.INFO, "");
 

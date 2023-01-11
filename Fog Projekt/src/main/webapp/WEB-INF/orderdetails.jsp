@@ -26,6 +26,8 @@
                 <th>Price</th>
                 <th>Username</th>
                 <th>Has a Shed</th>
+                <th>Is Paid?</th>
+                <th>Offer Accepted?</th>
             </tr>
             </thead>
             <tr>
@@ -39,17 +41,23 @@
                         ${requestScope.carport.totalPrice}
                 </td>
                 <td>
-                        <%-- ${requestScope.userName} --%>
+                        ${requestScope.order.customerName}
                 </td>
                 <td>
                         ${requestScope.carport.hasShed}
+                </td>
+                <td>
+                        ${requestScope.carport.paymentPaid}
+                </td>
+                <td>
+                        ${requestScope.carport.offerAccepted}
                 </td>
             </tr>
         </table>
 
         <br>
 
-        <h3><br>SVG Drawing of your chosen carport:</h3>
+        <h3><br>SVG Drawing of the carport:</h3>
 
         ${requestScope.svg}
 

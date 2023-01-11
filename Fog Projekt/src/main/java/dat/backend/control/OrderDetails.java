@@ -25,6 +25,9 @@ public class OrderDetails extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int orderId = Integer.parseInt(request.getParameter("order_id"));
 
+        Order order = CarportFacade.getSpecificOrder(orderId);
+        request.setAttribute("order", order);
+
         Carport carport = CarportFacade.getSpecificCarport(orderId);
         request.setAttribute("carport", carport);
 
