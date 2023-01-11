@@ -31,11 +31,13 @@ public class CreateOrder extends HttpServlet {
         Order order = new Order();
         order.setCustomerName(user.getUsername());
 
+        CarportFacade.createCarport(carport);
+        order.setCarportId(carport.getCarportId());
+
         CarportFacade.createOrder(order);
 
-        carport.setOrderId(order.getOrderId());
 
-        CarportFacade.createCarport(carport);
+        //carport.setOrderId(order.getOrderId());
 
         request.getRequestDispatcher("WEB-INF/carport/confirmation.jsp").forward(request, response);
     }

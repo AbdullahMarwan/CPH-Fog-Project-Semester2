@@ -43,12 +43,12 @@ public class CarportMapper {
         return query.getResultList();
     }
 
-    static Carport getSpecificCarport(int orderId) {
+    static Carport getSpecificCarport(int carportId) {
         Logger.getLogger("web").log(Level.INFO, "");
 
         PersistenceManager persistenceManager = new PersistenceManager("fog-unit");
 
-        Carport carport = persistenceManager.getEntityManager().find(Carport.class, orderId);
+        Carport carport = persistenceManager.getEntityManager().find(Carport.class, carportId);
 
         return carport;
     }

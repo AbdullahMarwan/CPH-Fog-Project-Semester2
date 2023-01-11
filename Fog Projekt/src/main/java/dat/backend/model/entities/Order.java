@@ -8,7 +8,7 @@ import java.sql.Timestamp;
 @NamedQueries({
         @NamedQuery(name = "getAllOrders", query = "SELECT o FROM Order o"),
         @NamedQuery(name = "getOrdersCustomerName", query = "SELECT o FROM Order o WHERE o.customerName = :customerName"),
-        })
+})
 @Table(name = "orders")
 public class Order {
     @Id
@@ -18,17 +18,28 @@ public class Order {
     @Column(name = "customer_name")
     private String customerName;
     @Column(name = "order_date")
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Timestamp orderDate;
+    @Column(name = "carport_id")
+    private int carportId;
 
-    public Order(int orderId, String customerName, Timestamp orderDate) {
+    public Order(int orderId, String customerName, Timestamp orderDate, int carportId) {
         this.orderId = orderId;
         this.customerName = customerName;
         this.orderDate = orderDate;
+        this.carportId = carportId;
     }
 
     public Order() {
 
+    }
+
+    public int getCarportId() {
+        return carportId;
+    }
+
+    public void setCarportId(int carportId) {
+        this.carportId = carportId;
     }
 
     public int getOrderId() {

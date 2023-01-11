@@ -17,8 +17,8 @@ public class CarportFacade {
         return CarportMapper.getOrders();
     }
 
-    public static Carport getSpecificCarport(int orderId){
-        return CarportMapper.getSpecificCarport(orderId);
+    public static Carport getSpecificCarport(int carportId){
+        return CarportMapper.getSpecificCarport(carportId);
     }
 
     public static Order getSpecificOrder(int orderId){

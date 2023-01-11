@@ -22,10 +22,8 @@ public class Carport {
     private boolean hasShed;
     @Column(name = "material_id")
     private int materialId = 1;
-    @Column(name = "order_id")
-    private int orderId;
 
-    public Carport(int carportId, int length, int width, int totalPrice, boolean offerAccepted, boolean paymentPaid, boolean hasShed, int materialId, int orderId) {
+    public Carport(int carportId, int length, int width, int totalPrice, boolean offerAccepted, boolean paymentPaid, boolean hasShed, int materialId) {
         this.carportId = carportId;
         this.length = length;
         this.width = width;
@@ -34,7 +32,6 @@ public class Carport {
         this.paymentPaid = paymentPaid;
         this.hasShed = hasShed;
         this.materialId = materialId;
-        this.orderId = orderId;
     }
 
     public Carport(int length, int width, int totalPrice, boolean hasShed) {
@@ -112,11 +109,4 @@ public class Carport {
         this.materialId = materialId;
     }
 
-    public int getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(int orderId) {
-        this.orderId = orderId;
-    }
 }

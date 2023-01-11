@@ -28,7 +28,7 @@ public class OrderDetails extends HttpServlet {
         Order order = CarportFacade.getSpecificOrder(orderId);
         request.setAttribute("order", order);
 
-        Carport carport = CarportFacade.getSpecificCarport(orderId);
+        Carport carport = CarportFacade.getSpecificCarport(order.getCarportId());
         request.setAttribute("carport", carport);
 
         String viewBox = SVG.addViewBox(-30, -30, carport.getLength() + 80, carport.getWidth() + 80);
