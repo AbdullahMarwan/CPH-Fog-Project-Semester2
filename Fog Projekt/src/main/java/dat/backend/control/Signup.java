@@ -27,10 +27,8 @@ public class Signup extends HttpServlet {
         String password = request.getParameter("password");
 
         try {
-            User user = UserFacade.createUser(username, password, "user");
-
-            session = request.getSession();
-            session.setAttribute("user", user); // adding user object to session scope
+            User user = new User(username, password, "user");
+            UserFacade.createUser(user);
 
             request.getRequestDispatcher("WEB-INF/users/creation.jsp").forward(request, response);
         } catch (DatabaseException e) {

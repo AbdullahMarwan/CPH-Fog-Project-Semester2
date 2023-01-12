@@ -8,10 +8,7 @@ public class UserFacade {
         return UserMapper.newLogin(username, password);
     }
 
-    public static User createUser(String username, String password, String role) throws DatabaseException {
-
-        User user = new User(username, password, role);
-
-        return UserMapper.newCreateUser(user);
+    public static void createUser(User user) throws DatabaseException {
+        UserMapper.newCreateUser(user);
     }
 }

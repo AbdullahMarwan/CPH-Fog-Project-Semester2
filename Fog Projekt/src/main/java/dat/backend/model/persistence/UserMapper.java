@@ -25,7 +25,7 @@ class UserMapper {
         return null;
     }
 
-    static User newCreateUser(User user) {
+    static void newCreateUser(User user) {
         Logger.getLogger("web").log(Level.INFO, "");
 
         PersistenceManager persistenceManager = new PersistenceManager("fog-unit");
@@ -34,8 +34,6 @@ class UserMapper {
 
         persistenceManager.getEntityManager().persist((user));
         persistenceManager.entityTransaction().commit();
-
-        return null;
     }
 
 }
